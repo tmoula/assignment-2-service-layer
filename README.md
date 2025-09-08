@@ -98,26 +98,95 @@ open build/reports/jacoco/test/html/index.html
 ### Test Coverage
 Target: 80% code coverage across all layers
 
+## Team Collaboration Setup
+
+### For Teams Working on This Assignment
+
+This project is designed to be completed by teams. Follow these steps to set up your team's development environment:
+
+#### Step 1: Team Lead - Fork the Repository
+One team member should be designated as the repository owner:
+
+1. Navigate to the original repository: https://github.com/kousen/assignment-2-service-layer
+2. Click the "Fork" button in the top-right corner
+3. Select your personal GitHub account
+4. This creates your team's working repository
+
+#### Step 2: All Team Members - Clone the Fork
+Each team member should clone the team's forked repository:
+
+```bash
+# Replace [team-lead-username] with the GitHub username of whoever forked the repo
+git clone https://github.com/[team-lead-username]/assignment-2-service-layer.git
+cd assignment-2-service-layer
+```
+
+#### Step 3: Configure Upstream Remote
+All team members should set up the original repository as the upstream remote to receive updates:
+
+```bash
+# Add the original repository as upstream
+git remote add upstream https://github.com/kousen/assignment-2-service-layer.git
+
+# Verify your remotes
+git remote -v
+# You should see:
+# origin    https://github.com/[team-lead-username]/assignment-2-service-layer.git (fetch)
+# origin    https://github.com/[team-lead-username]/assignment-2-service-layer.git (push)
+# upstream  https://github.com/kousen/assignment-2-service-layer.git (fetch)
+# upstream  https://github.com/kousen/assignment-2-service-layer.git (push)
+```
+
+#### Step 4: Sync with Upstream (When Updates are Available)
+To get updates from the original repository:
+
+```bash
+# Fetch updates from upstream
+git fetch upstream
+
+# Merge upstream changes into your main branch
+git checkout main
+git merge upstream/main
+
+# Push updates to your team's fork
+git push origin main
+```
+
+#### Step 5: Team Workflow
+1. **Create feature branches** for different parts of the assignment:
+   ```bash
+   git checkout -b feature/repository-layer
+   git checkout -b feature/service-layer
+   git checkout -b feature/controller-layer
+   ```
+
+2. **Push branches to your team's fork**:
+   ```bash
+   git push origin feature/your-branch-name
+   ```
+
+3. **Create Pull Requests** within your team's fork for code review
+
+4. **Ensure all team members have commits** in the final submission
+
 ## Getting Started
 
 ### Prerequisites
 - Java 17 or higher
 - Gradle 7.x or higher
+- Git
+- GitHub account
 
-### Installation
+### Installation (After Team Setup)
 
-1. Clone the repository:
-```bash
-git clone [repository-url]
-cd assignment-2-service-layer
-```
+After completing the Team Collaboration Setup:
 
-2. Build the project:
+1. Build the project:
 ```bash
 ./gradlew build
 ```
 
-3. Run the application:
+2. Run the application:
 ```bash
 ./gradlew bootRun
 ```
