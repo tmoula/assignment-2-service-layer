@@ -4,8 +4,8 @@
 
 **Author:** Kenneth Kousen  
 **License:** MIT License  
-**Spring Boot Version:** 3.x  
-**Java Version:** 17+  
+**Spring Boot Version:** 3.5.5
+**Java Version:** 21+  
 
 ## Overview
 
@@ -96,7 +96,9 @@ open build/reports/jacoco/test/html/index.html
 ```
 
 ### Test Coverage
-Target: 80% code coverage across all layers
+- Target: 80% code coverage across all layers
+- JaCoCo plugin configured for automatic coverage reporting
+- Coverage verification integrated with build process
 
 ## Team Collaboration Setup
 
@@ -172,8 +174,8 @@ git push origin main
 ## Getting Started
 
 ### Prerequisites
-- Java 17 or higher
-- Gradle 7.x or higher
+- Java 21 or higher
+- Gradle 8.x or higher
 - Git
 - GitHub account
 
