@@ -21,7 +21,10 @@ dependencies {
     testImplementation("org.mockito:mockito-core")
 }
 
-val isJacocoReportRequested = gradle.startParameter.taskNames.any { it.contains("jacocoTestReport", ignoreCase = true) }
+val isJacocoReportRequested =
+    gradle.startParameter.taskNames.any {
+        it.contains("jacocoTestReport", ignoreCase = true)
+    }
 
 tasks.test {
     useJUnitPlatform()
