@@ -21,9 +21,15 @@ dependencies {
     testImplementation("org.mockito:mockito-core")
 }
 
+val isJacocoReportRequested = gradle.startParameter.taskNames.any { it.contains("jacocoTestReport", ignoreCase = true) }
+
 tasks.test {
     useJUnitPlatform()
     jvmArgs("-XX:+EnableDynamicAgentLoading", "-Xshare:off")
+    if (isJacocoReportRequested) {
+        // When generating JaCoCo report explicitly, allow tests to fail but still produce coverage
+        ignoreFailures = true
+    }
     finalizedBy(tasks.jacocoTestReport)
 }
 
