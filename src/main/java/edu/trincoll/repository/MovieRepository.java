@@ -1,42 +1,49 @@
 package edu.trincoll.repository;
 
-import edu.trincoll.model.Item;
+import java.time.LocalDate;
 import java.util.List;
 
+import edu.trincoll.model.Movie;
+
 /**
- * TODO: Rename this interface to match your domain
- * Examples: BookmarkRepository, QuoteRepository, etc.
- * 
- * Add domain-specific query methods that make sense for your use case.
+ * Repository interface for Movie entities.
+ * Add domain-specific query methods that make sense for movies.
  */
-public interface ItemRepository extends Repository<Item, Long> {
+public interface MovieRepository extends Repository<Movie, Long> {
     
     /**
-     * Find all items with a specific status
+     * Find all movies with a specific status (e.g., released, upcoming)
      */
-    List<Item> findByStatus(Item.Status status);
+    List<Movie> findByStatus(Movie.Status status);
     
     /**
-     * Find all items in a category
+     * Find all movies in a specific genre
      */
-    List<Item> findByCategory(String category);
+    List<Movie> findByGenre(String genre);
     
     /**
-     * Find all items containing a specific tag
+     * Find all movies containing a specific tag
      */
-    List<Item> findByTag(String tag);
+    List<Movie> findByTag(String tag);
     
     /**
-     * Find items with title containing search term (case-insensitive)
+     * Find movies with title containing search term (case-insensitive)
      */
-    List<Item> findByTitleContaining(String searchTerm);
+    List<Movie> findByTitleContaining(String searchTerm);
+    
+    // Additional domain-specific queries for movies
+    /**
+     * Find movies directed by a specific director
+     */
+    List<Movie> findByDirector(String director);
     
     /**
-     * TODO: Add at least 3 more domain-specific query methods
-     * Examples:
-     * - findByAuthor(String author) for quotes
-     * - findByUrl(String url) for bookmarks  
-     * - findOverdue() for habits
-     * - findByIngredient(String ingredient) for recipes
+     * Find movies released after a specific date
      */
+    List<Movie> findByReleaseDateAfter(LocalDate date);
+    
+    /**
+     * Find movies that are marked as favorite
+     */
+    List<Movie> findByFavoriteTrue();
 }
