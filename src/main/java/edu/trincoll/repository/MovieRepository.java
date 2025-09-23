@@ -10,7 +10,7 @@ import edu.trincoll.model.Movie;
  * Add domain-specific query methods that make sense for movies.
  */
 public interface MovieRepository extends Repository<Movie, Long> {
-    
+     List<Movie> findByCategory(String category); // ⟵ add this
     /**
      * Find all movies with a specific status (e.g., released, upcoming)
      */

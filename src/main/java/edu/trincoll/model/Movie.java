@@ -19,12 +19,10 @@ public class Movie {
     private List<String> tags = new ArrayList<>();
 
     public enum Status {
-        RELEASED,
-        UPCOMING,
-        CANCELLED
+        RELEASED, UPCOMING, CANCELLED,
+        ACTIVE, INACTIVE, ARCHIVED   // ⟵
     }
-
-    private Status status;
+    private Status status = Status.ACTIVE;
 
     // --- Constructors ---
     public Movie() {
@@ -60,6 +58,9 @@ public class Movie {
     public String getGenre() { return genre; }
     public void setGenre(String genre) { this.genre = genre; this.updatedAt = LocalDateTime.now(); }
 
+    public String getCategory() { return getGenre(); }
+    public void setCategory(String category) { setGenre(category); }
+
     public String getDirector() { return director; }
     public void setDirector(String director) { this.director = director; this.updatedAt = LocalDateTime.now(); }
 
@@ -73,6 +74,7 @@ public class Movie {
     public void setFavorite(boolean favorite) { this.favorite = favorite; this.updatedAt = LocalDateTime.now(); }
 
     public List<String> getTags() { return tags; }
+    public void setTags(List<String> tags) { this.tags = (tags == null) ? new ArrayList<>() : new ArrayList<>(tags); this.updatedAt = LocalDateTime.now(); }
     public void addTag(String tag) { this.tags.add(tag); this.updatedAt = LocalDateTime.now(); }
 
     public Status getStatus() { return status; }

@@ -16,9 +16,14 @@ import edu.trincoll.model.Movie;
 @Repository
 public class InMemoryMovieRepository implements MovieRepository {
 
+
     /** Thread-safe storage keyed by internal ID */
     private final Map<Long, Movie> storage = new ConcurrentHashMap<>();
-
+    @Override
+    public List<Movie> findByCategory(String category) {
+        // Alias to genre
+        return findByGenre(category);
+    }
     /** Auto-incrementing ID generator starting at 1 */
     private final AtomicLong idGenerator = new AtomicLong(1);
 
