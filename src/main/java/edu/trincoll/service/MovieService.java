@@ -8,6 +8,15 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * AI Collaboration Report:
+ * - AI Tool Used: ChatGPT, Claude
+ * - Most Helpful Prompt: Suggest improvements to error handling and input validation in the service layer 
+ * - AI Mistake We Fixed: none
+ * - Time Saved: a lot of time, about 12 hours
+ * - Team Members: Taha Moula,Daniel Simon, Varvara Esina
+ */
+
 @Service
 public class MovieService extends BaseService<Movie, Long> {
 
